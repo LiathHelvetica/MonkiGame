@@ -1,6 +1,6 @@
 <template>
-  <v-app dark>
-    <v-main>
+  <v-app>
+    <v-main class="main">
       <v-container>
         <nuxt />
       </v-container>
@@ -11,3 +11,10 @@
 <script>
 export default {}
 </script>
+
+<style lang="sass">
+@import '~/assets/variables.scss'
+
+.main
+  background-color: $background-color
+</style>
