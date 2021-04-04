@@ -1,56 +1,53 @@
 <template>
   <div>
     <div class="game-board">
-      <div class="tile3"></div>
-      <div class="tile1"></div>
-      <div class="tile2"></div>
-      <v-btn class="sample-button"
-        >AAAAA<v-icon>mdi-arrow-up-down-bold</v-icon></v-btn
-      >
+      <main-menu
+        v-if="gameState === mainMenu"
+        @play-clicked="initialiseGame"
+        @options-clicked="goToOptions"
+        @credits-clicked="goToCredits"
+      ></main-menu>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import MainMenu from '@/components/MainMenu'
+import { mapGetters } from 'vuex'
+
+export default {
+  components: {
+    MainMenu,
+  },
+  data() {
+    return {
+      gameState: undefined,
+    }
+  },
+  computed: {
+    ...mapGetters(['mainMenu']),
+  },
+  created() {
+    this.gameState = this.mainMenu
+  },
+  methods: {
+    initialiseGame() {},
+    goToOptions() {
+      console.log('go to options')
+    },
+    goToCredits() {
+      console.log('go to credits')
+    },
+  },
+}
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
 @import '~/assets/variables.scss'
 
 .game-board
-  width: 400px
-  height: 400px
+  width: 90vmin
+  height: 90vmin
   background-color: $board-color
   margin: auto
-
-.tile1
-  position: relative
-  top: 25%
-  left: 75%
-  background-color: $tile-color
-  width: 7%
-  height: 7%
-
-.tile2
-  position: relative
-  top: 70%
-  left: 30%
-  background-color: $tile-color
-  width: 7%
-  height: 7%
-
-.tile3
-  position: relative
-  top: 0
-  left: 10%
-  background-color: $tile-color
-  width: 7%
-  height: 7%
-
-.sample-button
-  top: 50%
-  left: 50%
-  background-color: $tile-color !important
-  color: $accent-color !important
 </style>
