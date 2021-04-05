@@ -13,6 +13,7 @@ const store = () => {
           SOCIALS: 5,
         },
         defaultGameOptions: {
+          roundIndex: 1,
           phase1Time: 12000,
           tilesNumber: 5,
           timeReductionFactor: 0.8,

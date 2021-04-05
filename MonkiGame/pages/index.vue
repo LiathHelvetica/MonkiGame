@@ -7,31 +7,41 @@
         @options-clicked="goToOptions"
         @credits-clicked="goToCredits"
       ></main-menu>
+      <between-rounds
+        v-if="gameState === betweenRounds"
+        :game-options="gameOptions"
+      ></between-rounds>
     </div>
   </div>
 </template>
 
 <script>
 import MainMenu from '@/components/MainMenu'
+import BetweenRounds from '@/components/BetweenRounds'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     MainMenu,
+    BetweenRounds,
   },
   data() {
     return {
       gameState: undefined,
+      gameOptions: {},
     }
   },
   computed: {
-    ...mapGetters(['mainMenu']),
+    ...mapGetters(['mainMenu', 'getDefaultGameOptions', 'betweenRounds']),
   },
   created() {
     this.gameState = this.mainMenu
   },
   methods: {
-    initialiseGame() {},
+    initialiseGame() {
+      this.gameOptions = this.getDefaultGameOptions
+      this.gameState = this.betweenRounds
+    },
     goToOptions() {
       console.log('go to options')
     },
