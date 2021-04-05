@@ -1,6 +1,11 @@
 @import '~/assets/variables.scss';
 
 .button {
+  display: flex;
+  justify-content: space-between;
   background-color: $tile-color !important;
   color: $accent-color !important;
+  text-transform: none;
+  font-size: 24px;
+  width: 40%;
 }

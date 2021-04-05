@@ -41,11 +41,4 @@ export default {
   justify-content: space-evenly
   align-items: center
   height: 100%
-
-.button
-  display: flex
-  justify-content: space-between
-  width: 40%
-  font-size: 24px
-  text-transform: none
 </style>
