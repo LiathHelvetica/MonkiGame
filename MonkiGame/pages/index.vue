@@ -10,7 +10,9 @@
       <between-rounds
         v-if="gameState === betweenRounds"
         :game-options="gameOptions"
+        @start-clicked="initialiseRound"
       ></between-rounds>
+      <round v-if="gameState === inGame" :game-options="gameOptions"></round>
     </div>
   </div>
 </template>
@@ -18,12 +20,14 @@
 <script>
 import MainMenu from '@/components/MainMenu'
 import BetweenRounds from '@/components/BetweenRounds'
+import Round from '@/components/Round'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     MainMenu,
     BetweenRounds,
+    Round,
   },
   data() {
     return {
@@ -32,7 +36,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['mainMenu', 'getDefaultGameOptions', 'betweenRounds']),
+    ...mapGetters([
+      'mainMenu',
+      'getDefaultGameOptions',
+      'betweenRounds',
+      'inGame',
+    ]),
   },
   created() {
     this.gameState = this.mainMenu
@@ -47,6 +56,9 @@ export default {
     },
     goToCredits() {
       console.log('go to credits')
+    },
+    initialiseRound() {
+      this.gameState = this.inGame
     },
   },
 }

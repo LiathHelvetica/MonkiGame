@@ -17,7 +17,7 @@
       <div class="second-piece">Number of tiles to memorise</div>
       <div class="third-piece full-center">{{ gameOptions.tilesNumber }}</div>
     </div>
-    <v-btn class="button" large
+    <v-btn class="button" large @click="$emit('start-clicked')"
       >Start<v-icon large>mdi-arrow-right-thick</v-icon></v-btn
     >
   </div>
