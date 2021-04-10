@@ -19,7 +19,7 @@ const store = () => {
           timeReductionFactor: 0.8,
           phase2Time: 30000,
         },
-        TILE_WIDTH: 7,
+        TILE_SIZE: 10,
       }
     },
     getters: {
@@ -44,8 +44,8 @@ const store = () => {
       getDefaultGameOptions(state) {
         return state.defaultGameOptions
       },
-      getTileWidth(state) {
-        return state.TILE_WIDTH
+      getTileSize(state) {
+        return state.TILE_SIZE
       },
     },
     mutations: {},
