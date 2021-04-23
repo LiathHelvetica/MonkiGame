@@ -5,7 +5,10 @@
       :key="tile.order"
       class="tile"
       :style="getTileStyle(tile)"
-    ></div>
+      @click="handleTileClick(tile)"
+    >
+      <div class="text-center">{{ tile.isShown ? tile.order : '' }}</div>
+    </div>
   </div>
 </template>
 
@@ -24,6 +27,8 @@ export default {
     return {
       tileSize: undefined,
       tiles: [],
+      currentIndexToChoose: 1,
+      roundTimer: undefined,
     }
   },
   computed: {
@@ -37,11 +42,21 @@ export default {
       const top = this.getRandomCoordinates()
       const left = this.getRandomCoordinates()
       if (this.newTileDoesNotIntersect(tiles, top, left)) {
-        tiles.push({ top, left, order: i })
+        tiles.push({ top, left, order: i, isShown: true })
         i++
       }
     }
     this.tiles = tiles
+  },
+  mounted() {
+    setTimeout(() => {
+      this.tiles.forEach((tile) => {
+        tile.isShown = false
+      })
+      this.roundTimer = setTimeout(() => {
+        this.emitGameOver()
+      }, this.gameOptions.phase2Time)
+    }, this.gameOptions.phase1Time)
   },
   methods: {
     getRandomCoordinates() {
@@ -77,6 +92,25 @@ export default {
         left: tile.left + '%',
       }
     },
+    handleTileClick(tile) {
+      if (this.roundTimer) {
+        if (tile.order !== this.currentIndexToChoose) {
+          this.emitGameOver()
+          return
+        } else if (tile.order === this.tiles.length) {
+          clearTimeout(this.roundTimer)
+          this.$emit('round-complete')
+        }
+        tile.isShown = true
+        this.currentIndexToChoose++
+      }
+    },
+    emitGameOver() {
+      this.tiles.forEach((tile) => {
+        tile.isShown = true
+      })
+      this.$emit('game-over')
+    },
   },
 }
 </script>
@@ -93,4 +127,6 @@ export default {
   display: inline-flex
   position: absolute
   background-color: $tile-color
+  flex-direction: column
+  justify-content: center
 </style>

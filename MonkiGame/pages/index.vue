@@ -12,7 +12,12 @@
         :game-options="gameOptions"
         @start-clicked="initialiseRound"
       ></between-rounds>
-      <round v-if="gameState === inGame" :game-options="gameOptions"></round>
+      <round
+        v-if="gameState === inGame"
+        :game-options="gameOptions"
+        @game-over="debugLog('game over')"
+        @round-complete="debugLog('round complete')"
+      ></round>
     </div>
   </div>
 </template>
@@ -59,6 +64,9 @@ export default {
     },
     initialiseRound() {
       this.gameState = this.inGame
+    },
+    debugLog(txt) {
+      console.log(txt)
     },
   },
 }
