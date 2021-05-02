@@ -21,6 +21,7 @@
       <game-over
         v-if="gameState === gameOver"
         :game-options="gameOptions"
+        @main-menu-clicked="gameState = mainMenu"
       ></game-over>
     </div>
   </div>

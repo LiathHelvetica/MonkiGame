@@ -41,4 +41,7 @@ export default {
   justify-content: space-evenly
   align-items: center
   height: 100%
+
+.button
+  width: 40%
 </style>
