@@ -4,7 +4,7 @@
       <main-menu
         v-if="gameState === mainMenu"
         @play-clicked="initialiseGame"
-        @options-clicked="goToOptions"
+        @options-clicked="gameState = optionsScreen"
         @credits-clicked="goToCredits"
       ></main-menu>
       <between-rounds
@@ -23,6 +23,7 @@
         :game-options="gameOptions"
         @main-menu-clicked="gameState = mainMenu"
       ></game-over>
+      <options v-if="gameState === optionsScreen"></options>
     </div>
   </div>
 </template>
@@ -52,6 +53,7 @@ export default {
       'betweenRounds',
       'inGame',
       'gameOver',
+      'optionsScreen',
     ]),
   },
   created() {

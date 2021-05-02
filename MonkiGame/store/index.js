@@ -35,7 +35,7 @@ const store = () => {
       gameOver(state) {
         return state.gameStates.GAME_OVER
       },
-      options(state) {
+      optionsScreen(state) {
         return state.gameStates.OPTIONS
       },
       socials(state) {
