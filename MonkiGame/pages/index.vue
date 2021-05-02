@@ -10,14 +10,18 @@
       <between-rounds
         v-if="gameState === betweenRounds"
         :game-options="gameOptions"
-        @start-clicked="initialiseRound"
+        @start-clicked="gameState = inGame"
       ></between-rounds>
       <round
         v-if="gameState === inGame"
         :game-options="gameOptions"
-        @game-over="debugLog('game over')"
+        @game-over="gameState = gameOver"
         @round-complete="debugLog('round complete')"
       ></round>
+      <game-over
+        v-if="gameState === gameOver"
+        :game-options="gameOptions"
+      ></game-over>
     </div>
   </div>
 </template>
@@ -46,6 +50,7 @@ export default {
       'getDefaultGameOptions',
       'betweenRounds',
       'inGame',
+      'gameOver',
     ]),
   },
   created() {
@@ -61,9 +66,6 @@ export default {
     },
     goToCredits() {
       console.log('go to credits')
-    },
-    initialiseRound() {
-      this.gameState = this.inGame
     },
     debugLog(txt) {
       console.log(txt)

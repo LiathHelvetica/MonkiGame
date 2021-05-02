@@ -28,6 +28,7 @@ export default {
       tileSize: undefined,
       tiles: [],
       currentIndexToChoose: 1,
+      memorisationTimer: undefined,
       roundTimer: undefined,
     }
   },
@@ -49,16 +50,19 @@ export default {
     this.tiles = tiles
   },
   mounted() {
-    setTimeout(() => {
+    this.memorisationTimer = setTimeout(() => {
+      this.endPhase1()
+    }, this.gameOptions.phase1Time)
+  },
+  methods: {
+    endPhase1() {
       this.tiles.forEach((tile) => {
         tile.isShown = false
       })
       this.roundTimer = setTimeout(() => {
         this.emitGameOver()
       }, this.gameOptions.phase2Time)
-    }, this.gameOptions.phase1Time)
-  },
-  methods: {
+    },
     getRandomCoordinates() {
       return Math.floor(Math.random() * (99 - this.tileSize)) + 1
     },
@@ -103,6 +107,10 @@ export default {
         }
         tile.isShown = true
         this.currentIndexToChoose++
+      } else {
+        clearTimeout(this.memorisationTimer)
+        this.endPhase1()
+        this.handleTileClick(tile)
       }
     },
     emitGameOver() {
@@ -129,4 +137,5 @@ export default {
   background-color: $tile-color
   flex-direction: column
   justify-content: center
+  cursor: pointer
 </style>
