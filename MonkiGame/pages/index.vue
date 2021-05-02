@@ -16,7 +16,7 @@
         v-if="gameState === inGame"
         :game-options="gameOptions"
         @game-over="gameState = gameOver"
-        @round-complete="debugLog('round complete')"
+        @round-complete="goToNextRound"
       ></round>
       <game-over
         v-if="gameState === gameOver"
@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     initialiseGame() {
-      this.gameOptions = this.getDefaultGameOptions
+      Object.assign(this.gameOptions, this.getDefaultGameOptions)
       this.gameState = this.betweenRounds
     },
     goToOptions() {
@@ -67,6 +67,12 @@ export default {
     },
     goToCredits() {
       console.log('go to credits')
+    },
+    goToNextRound() {
+      this.gameOptions.roundIndex++
+      this.gameOptions.phase1Time =
+        this.gameOptions.phase1Time * this.gameOptions.timeReductionFactor
+      this.gameState = this.betweenRounds
     },
     debugLog(txt) {
       console.log(txt)

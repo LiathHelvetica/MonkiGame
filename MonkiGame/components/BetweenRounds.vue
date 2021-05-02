@@ -1,6 +1,11 @@
 <template>
   <div class="container text">
-    <div class="text-center text-h2">Round {{ gameOptions.roundIndex }}</div>
+    <div class="text-center">
+      <div class="text-h2">Round {{ gameOptions.roundIndex }}</div>
+      <div v-if="gameOptions.roundIndex !== 1">
+        Good job on the previous round, king
+      </div>
+    </div>
     <div class="three-piece-container">
       <div class="first-piece center-vertically">
         <v-icon class="text" large>mdi-clock</v-icon>
