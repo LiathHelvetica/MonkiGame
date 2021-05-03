@@ -4,7 +4,7 @@ const store = () => {
   return new Vuex.Store({
     state() {
       return {
-        gameStates: {
+        GAME_STATES: {
           MAIN_MENU: 0,
           BETWEEN_ROUNDS: 1,
           IN_GAME: 2,
@@ -20,32 +20,46 @@ const store = () => {
           phase2Time: 30000,
         },
         TILE_SIZE: 10,
+        GAME_OPTIONS_RESTRICTIONS: {
+          MAX_TILES_NUMBER: 5,
+          MAX_PHASE_1_TIME: 30,
+          MAX_TIME_REDUCTION_NUMBER: 100,
+          MIN_TILES_NUMBER: 1,
+          MIN_PHASE_1_TIME: 1,
+          MIN_TIME_REDUCTION_NUMBER: 0,
+        },
       }
     },
     getters: {
       mainMenu(state) {
-        return state.gameStates.MAIN_MENU
+        return state.GAME_STATES.MAIN_MENU
       },
       betweenRounds(state) {
-        return state.gameStates.BETWEEN_ROUNDS
+        return state.GAME_STATES.BETWEEN_ROUNDS
       },
       inGame(state) {
-        return state.gameStates.IN_GAME
+        return state.GAME_STATES.IN_GAME
       },
       gameOver(state) {
-        return state.gameStates.GAME_OVER
+        return state.GAME_STATES.GAME_OVER
       },
       optionsScreen(state) {
-        return state.gameStates.OPTIONS
+        return state.GAME_STATES.OPTIONS
       },
       socials(state) {
-        return state.gameStates.SOCIALS
+        return state.GAME_STATES.SOCIALS
       },
       getDefaultGameOptions(state) {
         return state.defaultGameOptions
       },
       getTileSize(state) {
         return state.TILE_SIZE
+      },
+      maxTileNumber(state) {
+        return state.MAX_TILES_NUMBER
+      },
+      getGameOptionsRestrictions(state) {
+        return state.GAME_OPTIONS_RESTRICTIONS
       },
     },
     mutations: {},
