@@ -14,10 +14,10 @@
       </div>
     </div>
     <div class="button-group">
-      <v-btn large class="button"
+      <v-btn large class="button" @click="emitExitClicked"
         >Exit<v-icon large>mdi-close-thick</v-icon></v-btn
       >
-      <v-btn large class="button"
+      <v-btn large class="button" @click="saveOptions"
         >Save <v-icon large>mdi-content-save</v-icon></v-btn
       >
     </div>
@@ -66,6 +66,21 @@ export default {
         suffix: ' %',
       },
     }
+  },
+  methods: {
+    saveOptions() {
+      const newOptions = {
+        tilesNumber: this.sliderData.tilesNumber.value,
+        phase1Time: this.sliderData.phase1Time.value * 1000,
+        timeReductionFactor:
+          (100 - this.sliderData.timeReductionFactor.value) / 100,
+      }
+      this.$store.commit('changeDefaultOptions', newOptions)
+      this.$emit('exit-clicked')
+    },
+    emitExitClicked() {
+      this.$emit('exit-clicked')
+    },
   },
 }
 </script>

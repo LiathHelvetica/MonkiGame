@@ -23,7 +23,10 @@
         :game-options="gameOptions"
         @main-menu-clicked="gameState = mainMenu"
       ></game-over>
-      <options v-if="gameState === optionsScreen"></options>
+      <options
+        v-if="gameState === optionsScreen"
+        @exit-clicked="gameState = mainMenu"
+      ></options>
     </div>
   </div>
 </template>

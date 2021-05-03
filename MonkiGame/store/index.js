@@ -62,7 +62,11 @@ const store = () => {
         return state.GAME_OPTIONS_RESTRICTIONS
       },
     },
-    mutations: {},
+    mutations: {
+      changeDefaultOptions(state, newOptions) {
+        Object.assign(state.defaultGameOptions, newOptions)
+      },
+    },
     actions: {},
   })
 }
