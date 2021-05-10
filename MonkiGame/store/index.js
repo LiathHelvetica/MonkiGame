@@ -10,7 +10,7 @@ const store = () => {
           IN_GAME: 2,
           GAME_OVER: 3,
           OPTIONS: 4,
-          SOCIALS: 5,
+          CREDITS: 5,
         },
         defaultGameOptions: {
           roundIndex: 1,
@@ -46,8 +46,8 @@ const store = () => {
       optionsScreen(state) {
         return state.GAME_STATES.OPTIONS
       },
-      socials(state) {
-        return state.GAME_STATES.SOCIALS
+      credits(state) {
+        return state.GAME_STATES.CREDITS
       },
       getDefaultGameOptions(state) {
         return state.defaultGameOptions

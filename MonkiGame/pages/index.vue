@@ -5,7 +5,7 @@
         v-if="gameState === mainMenu"
         @play-clicked="initialiseGame"
         @options-clicked="gameState = optionsScreen"
-        @credits-clicked="goToCredits"
+        @credits-clicked="gameState = credits"
       ></main-menu>
       <between-rounds
         v-if="gameState === betweenRounds"
@@ -27,6 +27,7 @@
         v-if="gameState === optionsScreen"
         @exit-clicked="gameState = mainMenu"
       ></options>
+      <credits v-if="gameState === credits"></credits>
     </div>
   </div>
 </template>
@@ -35,6 +36,9 @@
 import MainMenu from '@/components/MainMenu'
 import BetweenRounds from '@/components/BetweenRounds'
 import Round from '@/components/Round'
+import GameOver from '@/components/GameOver'
+import Options from '@/components/Options'
+import Credits from '@/components/Credits'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -42,6 +46,9 @@ export default {
     MainMenu,
     BetweenRounds,
     Round,
+    GameOver,
+    Options,
+    Credits,
   },
   data() {
     return {
@@ -57,6 +64,7 @@ export default {
       'inGame',
       'gameOver',
       'optionsScreen',
+      'credits',
     ]),
   },
   created() {
@@ -67,20 +75,11 @@ export default {
       Object.assign(this.gameOptions, this.getDefaultGameOptions)
       this.gameState = this.betweenRounds
     },
-    goToOptions() {
-      console.log('go to options')
-    },
-    goToCredits() {
-      console.log('go to credits')
-    },
     goToNextRound() {
       this.gameOptions.roundIndex++
       this.gameOptions.phase1Time =
         this.gameOptions.phase1Time * this.gameOptions.timeReductionFactor
       this.gameState = this.betweenRounds
-    },
-    debugLog(txt) {
-      console.log(txt)
     },
   },
 }
