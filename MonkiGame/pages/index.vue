@@ -27,7 +27,10 @@
         v-if="gameState === optionsScreen"
         @exit-clicked="gameState = mainMenu"
       ></options>
-      <credits v-if="gameState === credits"></credits>
+      <credits
+        v-if="gameState === credits"
+        @go-back="gameState = mainMenu"
+      ></credits>
     </div>
   </div>
 </template>

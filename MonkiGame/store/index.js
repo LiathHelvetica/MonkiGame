@@ -28,6 +28,12 @@ const store = () => {
           MIN_PHASE_1_TIME: 1,
           MIN_TIME_REDUCTION_NUMBER: 0,
         },
+        ICONS: {
+          GIT_HUB_ICON: require('assets/icons/GitHubIcon.png'),
+          LINKED_IN_ICON: require('assets/icons/LinkedInIcon.png'),
+          MAIL_ICON: require('assets/icons/MailIcon.png'),
+          TWITTER_ICON: require('assets/icons/TwitterIcon.png'),
+        },
       }
     },
     getters: {
@@ -60,6 +66,18 @@ const store = () => {
       },
       getGameOptionsRestrictions(state) {
         return state.GAME_OPTIONS_RESTRICTIONS
+      },
+      getGitHubIcon(state) {
+        return state.ICONS.GIT_HUB_ICON
+      },
+      getLinkedInIcon(state) {
+        return state.ICONS.LINKED_IN_ICON
+      },
+      getMailIcon(state) {
+        return state.ICONS.MAIL_ICON
+      },
+      getTwitterIcon(state) {
+        return state.ICONS.TWITTER_ICON
       },
     },
     mutations: {
