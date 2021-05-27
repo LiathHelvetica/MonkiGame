@@ -15,7 +15,7 @@
     </div>
     <div class="button-group">
       <v-btn large class="button" @click="emitExitClicked"
-        >Exit<v-icon large>mdi-close-thick</v-icon></v-btn
+        >Back<v-icon large>mdi-undo-variant</v-icon></v-btn
       >
       <v-btn large class="button" @click="saveOptions"
         >Save <v-icon large>mdi-content-save</v-icon></v-btn
