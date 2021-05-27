@@ -34,6 +34,12 @@ const store = () => {
           MAIL_ICON: require('assets/icons/MailIcon.png'),
           TWITTER_ICON: require('assets/icons/TwitterIcon.png'),
         },
+        LINKS: {
+          YT: 'https://www.youtube.com/watch?v=ktkjUjcZid0',
+          TWITTER: 'https://twitter.com/liath_44',
+          LINKED_IN: 'https://www.linkedin.com/in/maciej-dragun/',
+          GITHUB: 'https://github.com/Liath44',
+        },
       }
     },
     getters: {
@@ -78,6 +84,18 @@ const store = () => {
       },
       getTwitterIcon(state) {
         return state.ICONS.TWITTER_ICON
+      },
+      ytLink(state) {
+        return state.LINKS.YT
+      },
+      twitterLink(state) {
+        return state.LINKS.TWITTER
+      },
+      githubLink(state) {
+        return state.LINKS.GITHUB
+      },
+      linkedInLink(state) {
+        return state.LINKS.LINKED_IN
       },
     },
     mutations: {

@@ -1,21 +1,28 @@
 <template>
-  <div class="container pa-3">
+  <div class="container pa-3 app-text">
     <div class="text-h5 text-center pb-2">
       Game inspired by Primate Research Institute of Kyoto University and
       research on cognitive capabilities of chimpanzees
     </div>
     <div class="text-h6">
-      <span> Further reading: <v-icon>mdi-filmstrip</v-icon> </span>
+      <span>
+        Further reading:
+        <v-icon color="red" class="clickable" @click="route(ytLink)"
+          >mdi-filmstrip</v-icon
+        >
+      </span>
     </div>
     <div class="quad-icon-filler">
       <div class="py-2">
         <div
           :style="{ 'background-image': `url(${getTwitterIcon})` }"
-          class="icon"
+          class="icon clickable"
+          @click="route(twitterLink)"
         ></div>
         <div
           :style="{ 'background-image': `url(${getGitHubIcon})` }"
-          class="icon"
+          class="icon clickable"
+          @click="route(githubLink)"
         ></div>
       </div>
       <div class="py-3">
@@ -25,7 +32,8 @@
         ></div>
         <div
           :style="{ 'background-image': `url(${getLinkedInIcon})` }"
-          class="icon"
+          class="icon clickable"
+          @click="route(linkedInLink)"
         ></div>
       </div>
     </div>
@@ -46,11 +54,18 @@ export default {
       'getMailIcon',
       'getLinkedInIcon',
       'getTwitterIcon',
+      'twitterLink',
+      'ytLink',
+      'githubLink',
+      'linkedInLink',
     ]),
   },
   methods: {
     emitOnGoBack() {
       this.$emit('go-back')
+    },
+    route(url) {
+      window.location = url
     },
   },
 }
