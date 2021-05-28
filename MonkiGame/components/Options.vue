@@ -65,6 +65,14 @@ export default {
         max: gameOptionsRestrictions.MAX_TIME_REDUCTION_NUMBER,
         suffix: ' %',
       },
+      chanceToAddTile: {
+        label: 'Chance to add another tile per round',
+        value: defaultGameOptions.chanceToAddTile,
+        icon: 'mdi-plus-box-multiple',
+        min: gameOptionsRestrictions.MIN_CHANCE_TO_ADD_TILE,
+        max: gameOptionsRestrictions.MAX_CHANCE_TO_ADD_TILE,
+        suffix: ' %',
+      },
     }
   },
   methods: {

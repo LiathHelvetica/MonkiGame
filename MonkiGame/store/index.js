@@ -18,6 +18,7 @@ const store = () => {
           tilesNumber: 5,
           timeReductionFactor: 0.8,
           phase2Time: 30000,
+          chanceToAddTile: 20,
         },
         TILE_SIZE: 15,
         GAME_OPTIONS_RESTRICTIONS: {
@@ -27,6 +28,8 @@ const store = () => {
           MIN_TILES_NUMBER: 1,
           MIN_PHASE_1_TIME: 1,
           MIN_TIME_REDUCTION_NUMBER: 0,
+          MAX_CHANCE_TO_ADD_TILE: 100,
+          MIN_CHANCE_TO_ADD_TILE: 0,
         },
         ICONS: {
           GIT_HUB_ICON: require('assets/icons/GitHubIcon.png'),
