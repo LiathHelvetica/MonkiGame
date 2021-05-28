@@ -71,8 +71,10 @@ export default {
       for (const tile of tiles) {
         for (const corner of newTile) {
           if (
-            (corner.y >= tile.top && corner.y <= tile.top + this.tileSize) ||
-            (corner.x >= tile.left && corner.y <= tile.left + this.tileSize)
+            corner.y >= tile.top &&
+            corner.y <= tile.top + this.tileSize &&
+            corner.x >= tile.left &&
+            corner.x <= tile.left + this.tileSize
           ) {
             return false
           }

@@ -19,9 +19,9 @@ const store = () => {
           timeReductionFactor: 0.8,
           phase2Time: 30000,
         },
-        TILE_SIZE: 10,
+        TILE_SIZE: 15,
         GAME_OPTIONS_RESTRICTIONS: {
-          MAX_TILES_NUMBER: 5,
+          MAX_TILES_NUMBER: 15,
           MAX_PHASE_1_TIME: 30,
           MAX_TIME_REDUCTION_NUMBER: 100,
           MIN_TILES_NUMBER: 1,
