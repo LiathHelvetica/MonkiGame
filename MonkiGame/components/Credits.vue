@@ -65,7 +65,7 @@ export default {
       this.$emit('go-back')
     },
     route(url) {
-      window.location = url
+      window.open(url)
     },
   },
 }
