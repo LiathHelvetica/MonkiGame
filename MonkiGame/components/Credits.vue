@@ -1,7 +1,7 @@
 <template>
   <div class="container pa-3 app-text">
     <div class="text-h5 text-center pb-2">
-      Game inspired by Primate Research Institute of Kyoto University and
+      Game inspired by Primate Research Institute of Kyoto University and their
       research on cognitive capabilities of chimpanzees
     </div>
     <div class="text-h6">
