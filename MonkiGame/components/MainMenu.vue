@@ -4,7 +4,7 @@
       :src="require('@/assets/logo.png')"
       alt="MonkiGame logo"
       max-height="20%"
-      min-width="70%"
+      contain
     ></v-img>
     <v-btn class="button" large @click="$emit('play-clicked')"
       ><div>Play</div>
