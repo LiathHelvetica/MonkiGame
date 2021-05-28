@@ -82,6 +82,7 @@ export default {
         phase1Time: this.sliderData.phase1Time.value * 1000,
         timeReductionFactor:
           (100 - this.sliderData.timeReductionFactor.value) / 100,
+        chanceToAddTile: this.sliderData.chanceToAddTile.value,
       }
       this.$store.commit('changeDefaultOptions', newOptions)
       this.$emit('exit-clicked')

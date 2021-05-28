@@ -68,6 +68,7 @@ export default {
       'gameOver',
       'optionsScreen',
       'credits',
+      'getGameOptionsRestrictions',
     ]),
   },
   created() {
@@ -82,6 +83,19 @@ export default {
       this.gameOptions.roundIndex++
       this.gameOptions.phase1Time =
         this.gameOptions.phase1Time * this.gameOptions.timeReductionFactor
+      if (
+        this.gameOptions.tilesNumber <
+        this.getGameOptionsRestrictions.MAX_TILES_NUMBER
+      ) {
+        const randomNumber =
+          Math.floor(
+            Math.random() *
+              this.getGameOptionsRestrictions.MAX_CHANCE_TO_ADD_TILE
+          ) + 1
+        if (randomNumber <= this.gameOptions.chanceToAddTile) {
+          this.gameOptions.tilesNumber++
+        }
+      }
       this.gameState = this.betweenRounds
     },
   },
