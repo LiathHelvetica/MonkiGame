@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div
+    <v-btn
       v-for="tile in tiles"
       :key="tile.order"
       class="tile"
@@ -8,7 +8,7 @@
       @click="handleTileClick(tile)"
     >
       <div class="text-center">{{ tile.isShown ? tile.order : '' }}</div>
-    </div>
+    </v-btn>
   </div>
 </template>
 
@@ -136,9 +136,9 @@ export default {
 .tile
   display: inline-flex
   position: absolute
-  background-color: $tile-color
+  background-color: $tile-color !important
+  color: $accent-color !important
   flex-direction: column
   justify-content: center
-  cursor: pointer
   font-size: 40px
 </style>
