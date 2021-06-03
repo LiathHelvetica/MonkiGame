@@ -3,3 +3,18 @@ $board-color: #fad586;
 $tile-color: #764330;
 $accent-color: #E3C6AD;
 $font-color: #DB3310;
+
+$slider-track-width: 6px;
+$slider-thumb-focused-size-increase: 4px;
+$slider-thumb-size: 20px;
+
+$material-dark: (
+  'text': (
+    'theme': $font-color,
+    'prinary': $font-color,
+    'secondary': $font-color
+  ),
+  'icons': (
+    'active': $font-color
+  )
+);

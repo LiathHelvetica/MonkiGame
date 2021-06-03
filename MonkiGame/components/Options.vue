@@ -1,8 +1,8 @@
 <template>
   <div class="container text">
-    <div class="options">
+    <div class="options pa-3">
       <div v-for="slider in sliderData" :key="slider.label">
-        <div>{{ slider.label }}</div>
+        <div class="african">{{ slider.label }}</div>
         <v-slider
           v-model="slider.value"
           inverse-label
