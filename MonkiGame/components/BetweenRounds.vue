@@ -1,7 +1,9 @@
 <template>
   <div class="container text">
     <div class="text-center">
-      <div class="text-h2">Round {{ gameOptions.roundIndex }}</div>
+      <div :style="{ 'font-size': '56px' }" class="african">
+        Round {{ gameOptions.roundIndex }}
+      </div>
       <div v-if="gameOptions.roundIndex !== 1">
         Good job on the previous round, king
       </div>
@@ -10,8 +12,13 @@
       <div class="first-piece center-vertically">
         <v-icon class="text" large>mdi-clock</v-icon>
       </div>
-      <div class="second-piece">Time for memorising</div>
-      <div class="third-piece full-center">
+      <div :style="{ 'font-size': '24px' }" class="second-piece african">
+        Time for memorising
+      </div>
+      <div
+        :style="{ 'font-size': '24px' }"
+        class="third-piece full-center african"
+      >
         {{ timeToSeconds(gameOptions.phase1Time) }}
       </div>
     </div>
@@ -19,8 +26,15 @@
       <div class="first-piece center-vertically">
         <v-icon class="text" large>mdi-checkbox-multiple-blank</v-icon>
       </div>
-      <div class="second-piece">Number of tiles to memorise</div>
-      <div class="third-piece full-center">{{ gameOptions.tilesNumber }}</div>
+      <div :style="{ 'font-size': '24px' }" class="second-piece african">
+        Number of tiles to memorise
+      </div>
+      <div
+        :style="{ 'font-size': '24px' }"
+        class="third-piece full-center african"
+      >
+        {{ gameOptions.tilesNumber }}
+      </div>
     </div>
     <v-btn class="button" large @click="$emit('start-clicked')"
       >Start<v-icon large>mdi-arrow-right-thick</v-icon></v-btn
@@ -56,7 +70,6 @@ export default {
 .three-piece-container
   display: flex
   width: 100%
-  font-size: 32px
 
 .three-piece-container .first-piece
   width: 10%
@@ -68,7 +81,7 @@ export default {
   width: 20%
 
 .button
-  width: 30%
+  width: 100%
 
 .text
   color: $font-color
