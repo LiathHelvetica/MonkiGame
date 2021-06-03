@@ -43,6 +43,7 @@ const store = () => {
           LINKED_IN: 'https://www.linkedin.com/in/maciej-dragun/',
           GITHUB: 'https://github.com/Liath44',
         },
+        GAME_OVER_GIF: require('assets/LaughingMonkey.gif'),
       }
     },
     getters: {
@@ -99,6 +100,9 @@ const store = () => {
       },
       linkedInLink(state) {
         return state.LINKS.LINKED_IN
+      },
+      gameOverGif(state) {
+        return state.GAME_OVER_GIF
       },
     },
     mutations: {
