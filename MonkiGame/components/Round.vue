@@ -140,4 +140,5 @@ export default {
   flex-direction: column
   justify-content: center
   cursor: pointer
+  font-size: 40px
 </style>

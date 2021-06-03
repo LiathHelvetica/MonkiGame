@@ -17,7 +17,7 @@ const store = () => {
           phase1Time: 12000,
           tilesNumber: 5,
           timeReductionFactor: 0.8,
-          phase2Time: 30000,
+          phase2Time: 60000,
           chanceToAddTile: 20,
         },
         TILE_SIZE: 15,
