@@ -1,10 +1,10 @@
 <template>
   <div class="container pa-3 app-text">
-    <div class="text-h5 text-center pb-2">
+    <div class="african text-center pb-2">
       Game inspired by Primate Research Institute of Kyoto University and their
       research on cognitive capabilities of chimpanzees
     </div>
-    <div class="text-h6">
+    <div class="african">
       <span>
         Further reading:
         <v-icon color="red" class="clickable" @click="route(ytLink)"
