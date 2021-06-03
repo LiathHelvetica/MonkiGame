@@ -1,11 +1,8 @@
 <template>
   <div class="container">
-    <v-img
-      :src="require('@/assets/logo.png')"
-      alt="MonkiGame logo"
-      max-height="20%"
-      contain
-    ></v-img>
+    <div :style="{ 'font-size': '56px' }" class="african app-text">
+      Monki Game
+    </div>
     <v-btn class="button" large @click="$emit('play-clicked')"
       ><div>Play</div>
       <v-icon large>mdi-play</v-icon></v-btn
@@ -24,11 +21,6 @@
 <script>
 export default {
   name: 'MainMenu',
-  data() {
-    return {
-      logo: require('@/assets/logo.png'),
-    }
-  },
 }
 </script>
 

@@ -1,5 +1,14 @@
 @import '~/assets/variables.scss';
 
+@font-face {
+  font-family: "African";
+  src: url(~assets/fonts/african.ttf) format("truetype");
+}
+
+.african {
+  font-family: "African", serif;
+}
+
 .button {
   display: flex;
   justify-content: space-between;
