@@ -1,8 +1,10 @@
 <template>
   <div class="container text">
     <div>
-      <div class="text-center text-h2">Game Over</div>
-      <div class="text-center">
+      <div :style="{ 'font-size': '56px' }" class="text-center african">
+        Game Over
+      </div>
+      <div class="text-center african">
         You survived {{ gameOptions.roundIndex - 1 }} rounds
       </div>
     </div>
