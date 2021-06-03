@@ -1,7 +1,10 @@
 <template>
   <div class="container text">
     <div>
-      <div :style="{ 'font-size': '56px' }" class="text-center african">
+      <div
+        :class="{ xs: $vuetify.breakpoint.xs }"
+        class="text-center african title-font"
+      >
         Game Over
       </div>
       <div class="text-center african">

@@ -1,19 +1,19 @@
 <template>
   <div class="container">
-    <div :style="{ 'font-size': '56px' }" class="african app-text">
+    <div
+      :class="{ xs: $vuetify.breakpoint.xs }"
+      class="african app-text title-font text-center"
+    >
       Monki Game
     </div>
-    <v-btn class="button" large @click="$emit('play-clicked')"
-      ><div>Play</div>
-      <v-icon large>mdi-play</v-icon></v-btn
-    >
-    <v-btn class="button" large @click="$emit('options-clicked')"
-      ><div>Options</div>
-      <v-icon large>mdi-cog</v-icon></v-btn
-    >
-    <v-btn class="button" large @click="$emit('credits-clicked')"
-      ><div>Credits</div>
-      <v-icon large>mdi-duck</v-icon></v-btn
+    <v-btn
+      v-for="button in buttons"
+      :key="button.text"
+      class="button"
+      x-large
+      @click="button.click()"
+      ><div>{{ button.text }}</div>
+      <v-icon large>{{ button.icon }}</v-icon></v-btn
     >
   </div>
 </template>
@@ -21,6 +21,33 @@
 <script>
 export default {
   name: 'MainMenu',
+  data() {
+    return {
+      buttons: [
+        {
+          click: () => {
+            this.$emit('play-clicked')
+          },
+          icon: 'mdi-play',
+          text: 'Play',
+        },
+        {
+          click: () => {
+            this.$emit('options-clicked')
+          },
+          icon: 'mdi-cog',
+          text: 'Options',
+        },
+        {
+          click: () => {
+            this.$emit('credits-clicked')
+          },
+          icon: 'mdi-duck',
+          text: 'Credits',
+        },
+      ],
+    }
+  },
 }
 </script>
 
@@ -35,5 +62,5 @@ export default {
   height: 100%
 
 .button
-  width: 40%
+  width: 60%
 </style>

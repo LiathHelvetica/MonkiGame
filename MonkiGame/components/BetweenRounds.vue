@@ -1,10 +1,8 @@
 <template>
   <div class="container text">
     <div class="text-center">
-      <div :style="{ 'font-size': '56px' }" class="african">
-        Round {{ gameOptions.roundIndex }}
-      </div>
-      <div v-if="gameOptions.roundIndex !== 1">
+      <div class="african title-font">Round {{ gameOptions.roundIndex }}</div>
+      <div v-if="gameOptions.roundIndex !== 1" class="african subtitle">
         Good job on the previous round, king
       </div>
     </div>
@@ -12,13 +10,10 @@
       <div class="first-piece center-vertically">
         <v-icon class="text" large>mdi-clock</v-icon>
       </div>
-      <div :style="{ 'font-size': '24px' }" class="second-piece african">
+      <div class="second-piece african round-info-font">
         Time for memorising
       </div>
-      <div
-        :style="{ 'font-size': '24px' }"
-        class="third-piece full-center african"
-      >
+      <div class="third-piece full-center african round-info-font">
         {{ timeToSeconds(gameOptions.phase1Time) }}
       </div>
     </div>
@@ -26,13 +21,10 @@
       <div class="first-piece center-vertically">
         <v-icon class="text" large>mdi-checkbox-multiple-blank</v-icon>
       </div>
-      <div :style="{ 'font-size': '24px' }" class="second-piece african">
+      <div class="second-piece african round-info-font">
         Number of tiles to memorise
       </div>
-      <div
-        :style="{ 'font-size': '24px' }"
-        class="third-piece full-center african"
-      >
+      <div class="third-piece full-center african round-info-font">
         {{ gameOptions.tilesNumber }}
       </div>
     </div>
@@ -94,4 +86,7 @@ export default {
 .center-vertically
   display: flex
   align-items: center
+
+.subtitle
+  font-size: 12px
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container pa-3 app-text">
+  <div :class="{ xs: $vuetify.breakpoint.xs }" class="container pa-3 app-text">
     <div class="african text-center pb-2">
       Game inspired by Primate Research Institute of Kyoto University and their
       research on cognitive capabilities of chimpanzees
@@ -37,7 +37,7 @@
         ></div>
       </div>
     </div>
-    <v-btn large class="button" @click="emitOnGoBack"
+    <v-btn :large="!$vuetify.breakpoint.xs" class="button" @click="emitOnGoBack"
       >Back<v-icon large>mdi-undo-variant</v-icon></v-btn
     >
   </div>
@@ -99,4 +99,7 @@ export default {
   width: 100%
   height: 50%
   justify-content: space-evenly
+
+.app-text.xs
+  font-size: 8px
 </style>
