@@ -1,6 +1,6 @@
 <template>
-  <div class="container text">
-    <div class="options px-3 pt-3">
+  <div class="container text pa-3">
+    <div class="options">
       <div v-for="slider in sliderData" :key="slider.label">
         <div class="african">{{ slider.label }}</div>
         <v-slider
@@ -117,7 +117,7 @@ export default {
   height: 10%
   width: 100%
   justify-content: space-around
-  align-items: center
+  align-items: flex-end
 
 .button
   width: 40%
