@@ -18,23 +18,31 @@
           :style="{ 'background-image': `url(${getTwitterIcon})` }"
           class="icon clickable"
           @click="route(twitterLink)"
-        ></div>
+        >
+          <div>@liath_44</div>
+        </div>
         <div
           :style="{ 'background-image': `url(${getGitHubIcon})` }"
           class="icon clickable"
           @click="route(githubLink)"
-        ></div>
+        >
+          <div>Liath44</div>
+        </div>
       </div>
       <div class="py-3">
         <div
           :style="{ 'background-image': `url(${getMailIcon})` }"
           class="icon"
-        ></div>
+        >
+          <div>matthewdragun@gmail.com</div>
+        </div>
         <div
           :style="{ 'background-image': `url(${getLinkedInIcon})` }"
           class="icon clickable"
           @click="route(linkedInLink)"
-        ></div>
+        >
+          <div>Maciej Dragun</div>
+        </div>
       </div>
     </div>
     <v-btn :large="!$vuetify.breakpoint.xs" class="button" @click="emitOnGoBack"
@@ -86,6 +94,16 @@ export default {
   width: 50%
   background-position: center
   background-size: contain
+  display: flex
+  align-items: flex-end
+  justify-content: center
+
+.icon > div
+  background-color: lightgray
+  color: black
+  opacity: 0.7
+  font-size: 12px
+  margin-bottom: 2%
 
 .quad-icon-filler
   width: 100%
