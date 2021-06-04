@@ -1,9 +1,10 @@
 <template>
   <div class="container">
+    <v-progress-linear absolute :value="time"></v-progress-linear>
     <v-btn
       v-for="tile in tiles"
       :key="tile.order"
-      class="tile"
+      class="tile pa-0"
       :style="getTileStyle(tile)"
       @click="handleTileClick(tile)"
     >
@@ -28,8 +29,13 @@ export default {
       tileSize: undefined,
       tiles: [],
       currentIndexToChoose: 1,
+      phase1: true,
       memorisationTimer: undefined,
+      memorisationBeginning: undefined,
       roundTimer: undefined,
+      roundBeginning: undefined,
+      time: 0,
+      timer: undefined,
     }
   },
   computed: {
@@ -50,15 +56,30 @@ export default {
     this.tiles = tiles
   },
   mounted() {
+    this.memorisationBeginning = new Date()
     this.memorisationTimer = setTimeout(() => {
       this.endPhase1()
     }, this.gameOptions.phase1Time)
+    this.timer = setInterval(() => {
+      if (this.phase1) {
+        this.time =
+          ((new Date() - this.memorisationBeginning) /
+            this.gameOptions.phase1Time) *
+          105
+        return
+      }
+      this.time =
+        ((new Date() - this.roundBeginning) / this.gameOptions.phase2Time) * 105
+    }, 50)
   },
   methods: {
     endPhase1() {
+      this.phase1 = false
+      this.time = 0
       this.tiles.forEach((tile) => {
         tile.isShown = false
       })
+      this.roundBeginning = new Date()
       this.roundTimer = setTimeout(() => {
         this.emitGameOver()
       }, this.gameOptions.phase2Time)
@@ -105,6 +126,7 @@ export default {
           return
         } else if (tile.order === this.tiles.length) {
           clearTimeout(this.roundTimer)
+          clearInterval(this.timer)
           this.$emit('round-complete')
         }
         tile.isShown = true
@@ -119,6 +141,7 @@ export default {
       this.tiles.forEach((tile) => {
         tile.isShown = true
       })
+      clearInterval(this.timer)
       this.$emit('game-over')
     },
   },
@@ -141,4 +164,5 @@ export default {
   flex-direction: column
   justify-content: center
   font-size: 40px
+  min-width: initial !important
 </style>

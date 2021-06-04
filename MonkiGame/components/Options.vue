@@ -1,6 +1,6 @@
 <template>
   <div class="container text">
-    <div class="options pa-3">
+    <div class="options px-3 pt-3">
       <div v-for="slider in sliderData" :key="slider.label">
         <div class="african">{{ slider.label }}</div>
         <v-slider
