@@ -2,7 +2,12 @@
 
 @font-face {
   font-family: "African";
-  src: url(~assets/fonts/african.ttf) format("truetype");
+  src: url('~/assets/fonts/african.eot');
+  src: url('~/assets/fonts/african.eot?#iefix') format('embedded-opentype'),
+    url('~/assets/fonts/african.woff2') format('woff2'),
+    url('~/assets/fonts/african.woff') format('woff'),
+    url('~/assets/fonts/african.ttf')  format('truetype'),
+    url('~/assets/fonts/african.svg#svgFontName') format('svg');
 }
 
 .african {
