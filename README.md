@@ -4,7 +4,7 @@
   
 ## I want to play. Now!  
   
-Sure - [Here's the link](https://liath44.github.io/MonkiGame/)   
+Sure - [Here's the link](https://liathhelvetica.github.io/MonkiGame/)   
   
 ## Game goal  
 
@@ -54,5 +54,5 @@ Descriptions of project's branches:
 
 ## Contact
   * mail: matthewdragun@gmail.com
-  * twitter: [@liath_44](https://twitter.com/liath_44)
-  * GitHub: [Liath44](https://github.com/Liath44)
+  * twitter: [@LiathHelvetica](https://twitter.com/LiathHelvetica)
+  * GitHub: [LiathHelvetica](https://github.com/LiathHelvetica)
